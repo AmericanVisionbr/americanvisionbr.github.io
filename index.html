@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>American Vision - Segurança Eletrônica em Ji-Paraná</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    :root {
+      --verde: #008000;
+      --preto: #000000;
+      --branco: #FFFFFF;
+      --cinza-claro: #f5f5f5;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: var(--branco);
+    }
+    
+    /* Header */
+    header {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1558002038-1055907df827?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+      color: var(--branco);
+      text-align: center;
+      padding: 100px 20px;
+      position: relative;
+    }
+    
+    .logo-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+    
+    .logo {
+      height: 100px;
+      width: 100px;
+      background-color: var(--verde);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      border: 3px solid var(--branco);
+    }
+    
+    .logo i {
+      font-size: 50px;
+      color: var(--branco);
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+    
+    .slogan {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+    
+    .cta-button {
+      display: inline-block;
+      background-color: var(--verde);
+      color: var(--branco);
+      padding: 12px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+    }
+    
+    .cta-button:hover {
+      background-color: #006600;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Navigation */
+    nav {
+      background-color: var(--preto);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+    }
+    
+    .nav-logo {
+      color: var(--branco);
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+    
+    .nav-links li {
+      margin-left: 30px;
+    }
+    
+    .nav-links a {
+      color: var(--branco);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+    
+    .nav-links a:hover {
+      color: var(--verde);
+    }
+    
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background-color: var(--verde);
+      bottom: -5px;
+      left: 0;
+      transition: width 0.3s ease;
+    }
+    
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+    
+    /* Sections */
+    section {
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+      color: var(--preto);
+      position: relative;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      width: 80px;
+      height: 3px;
+      background-color: var(--verde);
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    /* Serviços */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+    
+    .service-card {
+      background-color: var(--cinza-claro);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+    
+    .service-icon {
+      background-color: var(--verde);
+      color: var(--branco);
+      font-size: 2rem;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .service-content {
+      padding: 20px;
+    }
+    
+    .service-content h3 {
+      margin-bottom: 15px;
+      color: var(--preto);
+    }
+    
+    /* Sobre */
+    .about-container {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+    }
+    
+    .about-text {
+      flex: 1;
+    }
+    
+    .about-image {
+      flex: 1;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+    
+    .about-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    /* Contato */
+    .contact-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    
+    .contact-info {
+      background-color: var(--cinza-claro);
+      padding: 30px;
+      border-radius: 10px;
+    }
+    
+    .contact-info h3 {
+      margin-bottom: 20px;
+      color: var(--verde);
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    
+    .contact-item i {
+      margin-right: 15px;
+      color: var(--verde);
+      font-size: 1.2rem;
+    }
+    
+    .whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      background-color: #25D366;
+      color: var(--branco);
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 10px;
+      transition: background-color 0.3s ease;
+    }
+    
+    .whatsapp-btn:hover {
+      background-color: #128C7E;
+    }
+    
+    .whatsapp-btn i {
+      margin-right: 10px;
+      font-size: 1.2rem;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--preto);
+      color: var(--branco);
+      padding: 40px 20px;
+      text-align: center;
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      text-align: left;
+    }
+    
+    .footer-column h3 {
+      color: var(--verde);
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+    }
+    
+    .footer-column p, .footer-column a {
+      color: #ccc;
+      margin-bottom: 10px;
+      display: block;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-column a:hover {
+      color: var(--verde);
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: #333;
+      border-radius: 50%;
+      color: var(--branco);
+      transition: background-color 0.3s ease;
+    }
+    
+    .social-links a:hover {
+      background-color: var(--verde);
+    }
+    
+    .copyright {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #333;
+      color: #999;
+      font-size: 0.9rem;
+    }
+    
+    /* Responsivo */
+    @media (max-width: 768px) {
+      .nav-container {
+        flex-direction: column;
+      }
+      
+      .nav-links {
+        margin-top: 15px;
+      }
+      
+      .nav-links li {
+        margin-left: 15px;
+        margin-right: 15px;
+      }
+      
+      .about-container {
+        flex-direction: column;
+      }
+      
+      header {
+        padding: 80px 20px;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header id="home">
+    <div class="logo-container">
+      <div class="logo">
+        <i class="fas fa-shield-alt"></i>
+      </div>
+      <h1>American Vision</h1>
+      <p class="slogan">Proteção inteligente para o que realmente importa</p>
+      <a href="#contato" class="cta-button">Solicitar Orçamento</a>
+    </div>
+  </header>
+  
+  <nav>
+    <div class="nav-container">
+      <div class="nav-logo">AMERICAN VISION</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#sobre">Sobre Nós</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  <section id="servicos">
+    <h2 class="section-title">Nossos Serviços</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-camera"></i>
+        </div>
+        <div class="service-content">
+          <h3>Venda de Equipamentos</h3>
+          <p>Oferecemos os melhores equipamentos de segurança eletrônica do mercado, com tecnologia de ponta e garantia.</p>
+        </div>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-tools"></i>
+        </div>
+        <div class="service-content">
+          <h3>Instalação Profissional</h3>
+          <p>Instalação especializada de sistemas de segurança por técnicos certificados, garantindo o melhor desempenho.</p>
+        </div>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-user-shield"></i>
+        </div>
+        <div class="service-content">
+          <h3>Monitoramento 24/7</h3>
+          <p>Serviço de monitoramento patrimonial com alarme, com central de monitoramento ativa 24 horas por dia.</p>
+        </div>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-wrench"></i>
+        </div>
+        <div class="service-content">
+          <h3>Manutenção Preventiva</h3>
+          <p>Manutenção regular para garantir que seu sistema de segurança opere sempre com máxima eficiência.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="sobre">
+    <h2 class="section-title">Sobre Nós</h2>
+    <div class="about-container">
+      <div class="about-text">
+        <p>A American Vision é uma empresa especializada em segurança eletrônica, atuando em Ji-Paraná e região. Nossa missão é proporcionar tranquilidade e proteção aos nossos clientes através de soluções tecnológicas de ponta.</p>
+        <p>Com anos de experiência no mercado, nossa equipe de profissionais altamente qualificados está pronta para oferecer o melhor em sistemas de segurança, desde a escolha dos equipamentos até a instalação e manutenção.</p>
+        <p>Valorizamos a confiança depositada em nosso trabalho e nos comprometemos com a excelência em todos os serviços prestados.</p>
+      </div>
+      <div class="about-image">
+        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Equipe American Vision">
+      </div>
+    </div>
+  </section>
+  
+  <section id="contato">
+    <h2 class="section-title">Entre em Contato</h2>
+    <div class="contact-container">
+      <div class="contact-info">
+        <h3>Informações de Contato</h3>
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>Av. Maringá, 1557 - Nova Brasília, Ji-Paraná - RO</span>
+        </div>
+        <div class="contact-item">
+          <i class="fab fa-whatsapp"></i>
+          <span>(69) 99399-6174</span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <span>americanvisionbr@gmail.com</span>
+        </div>
+        <a href="https://wa.me/5569993996174" class="whatsapp-btn" target="_blank">
+          <i class="fab fa-whatsapp"></i> Chamar no WhatsApp
+        </a>
+      </div>
+      
+      <div class="contact-info">
+        <h3>Horário de Atendimento</h3>
+        <div class="contact-item">
+          <i class="fas fa-clock"></i>
+          <span>Segunda a Sexta: 08:00 - 18:00</span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-clock"></i>
+          <span>Sábado: 08:00 - 12:00</span>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-phone-alt"></i>
+          <span>Plantão 24h para emergências</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <footer>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>American Vision</h3>
+        <p>Soluções completas em segurança eletrônica para residências e empresas em Ji-Paraná e região.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Links Rápidos</h3>
+        <a href="#home">Home</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#sobre">Sobre Nós</a>
+        <a href="#contato">Contato</a>
+      </div>
+      
+      <div class="footer-column">
+        <h3>Contato</h3>
+        <p><i class="fas fa-map-marker-alt"></i> Av. Maringá, 1557</p>
+        <p><i class="fas fa-phone"></i> (69) 99399-6174</p>
+        <p><i class="fas fa-envelope"></i> americanvisionbr@gmail.com</p>
+      </div>
+    </div>
+    
+    <div class="copyright">
+      <p>&copy; 2025 American Vision - Todos os direitos reservados</p>
+    </div>
+  </footer>
+</body>
+</html>
